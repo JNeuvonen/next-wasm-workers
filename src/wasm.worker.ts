@@ -9,7 +9,7 @@ let gamePaused = false;
 let universe: Universe | null = null;
 
 async function startGameOfLife(width: number, height: number) {
-  const { Universe } = await import('../rust/pkg');
+  const { Universe } = await import('../pkg');
   universe = Universe.new(width, height);
 }
 

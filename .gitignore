@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+
+/rust
+
 # next.js
 /.next/
 /out/
