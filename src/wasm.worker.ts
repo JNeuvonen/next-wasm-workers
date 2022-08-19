@@ -1,6 +1,6 @@
 // Needed to declare this as a module. Also shows that imports
 // function normally in workers.
-import { Universe } from '../rust/pkg';
+import { Universe } from '../pkg';
 import { shared } from './shared';
 
 const ctx: Worker = self as unknown as Worker;
