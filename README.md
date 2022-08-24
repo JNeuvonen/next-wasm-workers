@@ -1,12 +1,6 @@
-Example of integrating WASM & web workers with a Typescript NextJS project.
+Example of integrating WASM & web workers with a Typescript NextJS project. Deployed to Azure using Docker container. If you want to play with it on your machine you need to have Rust and wasm-pack installed on your machine, or building the app will throw a compile error.
 
-## Running
-
-1. `yarn`
-2. `yarn dev`
-3. Open `localhost:3000`
-
-## Layout
+https://next-wasm-demo.azurewebsites.net/
 
 - Rust code is in `./rust`, generated with `wasm-pack new` and built as a part of the Next build with `wasm-pack-plugin`.
 - Workers are in `./src`. Types for worker module are in `typings.d.ts`.
