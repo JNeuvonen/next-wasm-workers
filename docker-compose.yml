@@ -1,0 +1,6 @@
+services:
+  app:
+    image: docker-next-rust-ts-wasm
+    build: .
+    ports:
+      - 3000:3000
