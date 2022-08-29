@@ -12,21 +12,61 @@ let universe: Universe | null = null;
 async function startGameOfLife(width: number, height: number) {
   //@ts-ignore
   const { Universe } = await import('../rust/pkg');
-  universe = Universe.new(width, height);
+
+  const vec = [];
+  for (let i = 0; i < height * width; i++) {
+    const randNr = Math.random();
+
+    if (randNr < 0.4) {
+      vec.push(1);
+    } else {
+      vec.push(0);
+    }
+  }
+
+  //@ts-ignore
+  universe = Universe.new(width, height, vec);
 }
 
 async function tick() {
   if (universe) {
-    universe.tick();
+    if (!gamePaused) {
+      universe.tick();
+      ctx.postMessage({
+        type: 'gameStateUpdate',
+        data: universe.render(),
+      });
+    }
+  }
+}
+
+async function getCellCount() {
+  if (universe) {
     ctx.postMessage({
-      type: 'gameStateUpdate',
-      data: universe.render(),
+      type: 'cellCountUpdate',
+      data: universe.get_alive_cell_count(),
     });
   }
 }
 
 async function pauseAndPlayGame() {
   gamePaused = !gamePaused;
+}
+
+async function reSizeGame(width: number, height: number) {
+  const vec = [];
+  for (let i = 0; i < height * width; i++) {
+    const randNr = Math.random();
+
+    if (randNr < 0.4) {
+      vec.push(1);
+    } else {
+      vec.push(0);
+    }
+  }
+
+  //@ts-ignore
+  universe?.resize_game(width, height, vec);
 }
 
 ctx.addEventListener('message', (evt) => {
@@ -37,6 +77,14 @@ ctx.addEventListener('message', (evt) => {
 
     case 'pauseAndPlay':
       pauseAndPlayGame();
+      return;
+
+    case 'getCellCount':
+      getCellCount();
+      return;
+
+    case 'reSizeGame':
+      reSizeGame(evt.data.width, evt.data.height);
       return;
 
     case 'tick':

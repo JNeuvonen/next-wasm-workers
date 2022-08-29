@@ -14,6 +14,14 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "typings.d.ts", "/rust"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "typings.d.ts",
+    "global.d.ts",
+    "/rust",
+    "components/RealtimeChart/index.tsx"
+  ],
   "exclude": ["node_modules"]
 }

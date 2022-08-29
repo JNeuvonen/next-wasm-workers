@@ -1,0 +1,17 @@
+.pauseAndPlayBtn {
+  border: none;
+  padding: 10px;
+  border-radius: 7px; }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden; }
