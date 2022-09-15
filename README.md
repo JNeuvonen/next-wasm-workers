@@ -1,4 +1,6 @@
-Example of integrating WASM & web workers with a Typescript NextJS project. Deployed to Azure using Docker container. If you want to play with it on your machine you need to have rust and wasm-pack installed, or building the app will throw a compile error. 
+Demo might take some time to load since Azure cold starts an docker image instance if website has not been requested for a while
+
+Example of integrating WASM & web workers with a Typescript NextJS project. Deployed to Azure using Docker container. If you want to play with it on your machine you need to have rust and wasm-pack installed, or building the app will throw a compile error. Demo might take some time to load since
 
 https://rust-next-wasm-demo.azurewebsites.net/
 
